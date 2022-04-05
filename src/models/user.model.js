@@ -4,7 +4,7 @@ const userSchema = new mongoose.Schema(
   {
     first_name: { type: String, required: true },
     last_name: { type: String, required: true },
-    profile_pic: { type: String, required: true },
+    profile_pic: [{ type: String }],
   },
   {
     versionKey: false,
@@ -12,4 +12,6 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-module.exports = new mongoose.model("user", userSchema);
+const User = mongoose.model("user", userSchema); // user => users
+
+module.exports = User;

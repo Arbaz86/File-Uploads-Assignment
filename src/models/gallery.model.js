@@ -2,17 +2,19 @@ const mongoose = require("mongoose");
 
 const gallerySchema = new mongoose.Schema(
   {
-    user_pictures: [{ type: String, required: true }],
-    user_id: {
+    profile_pic: [{ type: String }],
+    batch_id: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "users",
+      ref: "user",
       required: true,
     },
   },
   {
-    timestamps: true,
     versionKey: false,
+    timestamps: true,
   }
 );
 
-module.exports = new mongoose.model("gallery", gallerySchema);
+const Gallery = mongoose.model("gallery", gallerySchema);
+
+module.exports = Galley;

@@ -1,12 +1,20 @@
 const express = require("express");
+
+const connect = require("./configs/db");
+
+const userController = require("./controllers/user.controller");
+
 const app = express();
 
 app.use(express.json());
 
-const userController = require("./controllers/user.controller");
-const galleryController = require("./models/gallery.model");
-
 app.use("/users", userController);
-app.use("/gallery", galleryController);
 
-module.exports = app;
+app.listen(2222, async () => {
+  try {
+    await connect();
+  } catch (err) {
+    console.error(err.message);
+  }
+  console.log("listening on port 2222");
+});
