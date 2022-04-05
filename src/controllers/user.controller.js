@@ -11,7 +11,7 @@ router.get("path", async (req, res) => {
   } catch (error) {
     return res.status(500).send({ message: error.message });
   }
-});
+});9
 
 router.post("/", async (req, res) => {
   try {
